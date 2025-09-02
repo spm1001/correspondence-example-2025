@@ -49,85 +49,79 @@ AIRLINES = {
     }
 }
 
-# User behavior types with different preferences
+# User behavior types with STRONGLY differentiated preferences  
 USER_TYPES = {
     'business_uk': {
-        'weight': 0.25,
+        'weight': 0.22,
         'preferences': {
-            'British_Airways': 0.35,
-            'Virgin_Atlantic': 0.30,
-            'Lufthansa': 0.20,
-            'Air_France': 0.10,
-            'Ryanair': 0.05
+            'British_Airways': 0.55,      # VERY strong preference
+            'Virgin_Atlantic': 0.35,      # Strong secondary preference
+            'Lufthansa': 0.08,           # Minimal consideration
+            'Air_France': 0.02,          # Almost never
+            'Ryanair': 0.00              # Never for business UK
         },
-        'avg_visits': 2.5,  # Business users compare more options
+        'avg_visits': 2.2,  # Focus on fewer, premium options
         'cooccurrence_boost': {
-            ('British_Airways', 'Virgin_Atlantic'): 3.0,
-            ('British_Airways', 'Lufthansa'): 1.8
+            ('British_Airways', 'Virgin_Atlantic'): 5.0,  # Much stronger boost
         }
     },
     'business_european': {
-        'weight': 0.20,
+        'weight': 0.18,
         'preferences': {
-            'Lufthansa': 0.35,
-            'Air_France': 0.25,
-            'British_Airways': 0.20,
-            'Virgin_Atlantic': 0.15,
-            'Ryanair': 0.05
+            'Lufthansa': 0.50,           # Dominant preference
+            'Air_France': 0.40,          # Strong secondary
+            'British_Airways': 0.08,     # Minimal
+            'Virgin_Atlantic': 0.02,     # Almost never
+            'Ryanair': 0.00              # Never for European business
         },
-        'avg_visits': 2.3,
+        'avg_visits': 2.1,
         'cooccurrence_boost': {
-            ('Lufthansa', 'Air_France'): 2.5,
-            ('Lufthansa', 'British_Airways'): 1.5
+            ('Lufthansa', 'Air_France'): 5.0,
         }
     },
     'leisure_premium': {
         'weight': 0.25,
         'preferences': {
-            'British_Airways': 0.25,
-            'Virgin_Atlantic': 0.25,
-            'Lufthansa': 0.20,
-            'Air_France': 0.20,
-            'Ryanair': 0.10
+            'British_Airways': 0.30,
+            'Virgin_Atlantic': 0.30, 
+            'Lufthansa': 0.25,
+            'Air_France': 0.15,
+            'Ryanair': 0.00              # Premium leisure avoids budget
         },
-        'avg_visits': 2.8,  # Leisure users research more
+        'avg_visits': 2.8,
         'cooccurrence_boost': {
-            ('British_Airways', 'Virgin_Atlantic'): 2.0,
-            ('Lufthansa', 'Air_France'): 2.0,
-            ('British_Airways', 'Ryanair'): 1.2  # Compare premium vs budget
+            ('British_Airways', 'Virgin_Atlantic'): 3.5,
+            ('Lufthansa', 'Air_France'): 3.0,
         }
     },
     'budget_conscious': {
-        'weight': 0.20,
+        'weight': 0.25,
         'preferences': {
-            'Ryanair': 0.45,
-            'British_Airways': 0.15,
-            'Lufthansa': 0.15,
-            'Air_France': 0.15,
-            'Virgin_Atlantic': 0.10
+            'Ryanair': 0.75,             # OVERWHELMINGLY prefer Ryanair
+            'British_Airways': 0.08,     # Rarely consider premium
+            'Lufthansa': 0.07,
+            'Air_France': 0.06,
+            'Virgin_Atlantic': 0.04      # Least likely premium option
         },
-        'avg_visits': 2.0,
+        'avg_visits': 1.8,               # Budget users shop less
         'cooccurrence_boost': {
-            ('Ryanair', 'British_Airways'): 1.5,
-            ('Ryanair', 'Lufthansa'): 1.3,
-            ('Ryanair', 'Air_France'): 1.3
+            ('Ryanair', 'British_Airways'): 2.0,  # When they do compare...
         }
     },
     'price_shopper': {
         'weight': 0.10,
         'preferences': {
-            'Ryanair': 0.30,
+            'Ryanair': 0.40,             # Start with budget but compare
             'British_Airways': 0.20,
-            'Lufthansa': 0.20,
-            'Air_France': 0.15,
-            'Virgin_Atlantic': 0.15
+            'Lufthansa': 0.18,
+            'Air_France': 0.12,
+            'Virgin_Atlantic': 0.10
         },
-        'avg_visits': 3.2,  # Price shoppers visit most airlines
+        'avg_visits': 3.5,  # Shop extensively
         'cooccurrence_boost': {
-            ('Ryanair', 'British_Airways'): 2.0,
-            ('Ryanair', 'Virgin_Atlantic'): 1.8,
-            ('British_Airways', 'Lufthansa'): 1.5,
-            ('Virgin_Atlantic', 'Air_France'): 1.5
+            ('Ryanair', 'British_Airways'): 4.0,    # Strong price comparison
+            ('Ryanair', 'Lufthansa'): 3.5,
+            ('British_Airways', 'Lufthansa'): 2.5,
         }
     }
 }
