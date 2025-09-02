@@ -1,0 +1,12 @@
+[project]
+name = "correspondence-py"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.10.6",
+    "pandas>=2.3.2",
+    "prince>=0.16.1",
+    "seaborn>=0.13.2",
+]
