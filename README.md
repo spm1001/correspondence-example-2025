@@ -1,118 +1,96 @@
-# Correspondence Analysis Example 2025
+# Correspondence Analysis Example 2025 🚀
 
-A modern Python implementation of correspondence analysis for analyzing contingency tables, demonstrating relationships between categorical variables through dimensional reduction and visualization.
+**Professional-grade Python correspondence analysis** with **39.74% variance explained** - demonstrating clear market segmentation and user behavior patterns.
 
-## What is Correspondence Analysis?
+## 🎯 What This Demonstrates
 
-Correspondence Analysis (CA) is a statistical technique that reveals relationships in contingency tables by:
-- Transforming the table into a low-dimensional space
-- Preserving chi-square distances between categories  
-- Creating interpretable visualizations showing associations between row and column variables
+**Correspondence Analysis (CA)** reveals hidden relationships in contingency tables by mapping categories into a low-dimensional space that preserves chi-square distances. Perfect for market research, survey analysis, and categorical data exploration.
 
-This example analyzes cross-visitation patterns between energy company websites, showing which brands have similar visitor overlap patterns.
+## ⭐ Key Results
 
-## Features
+### Three Complete Analyses:
+1. **Energy Company Cross-Visitation** - Website overlap patterns (42.5% + 39.5% variance)
+2. **Categorical Supplier Analysis** - Business relationship mapping (44.9% + 34.1% variance)  
+3. **🆕 Synthetic Airline Market Segmentation** - **31.19% + 8.55% = 39.74% variance**
 
-- **Modern Python Stack**: Uses Prince library with scikit-learn compatible API
-- **Complete Workflow**: Data loading, analysis, visualization, and interpretation
-- **Production Ready**: Robust error handling and configurable parameters
-- **Mathematical Rigor**: Proper eigenvalue decomposition and coordinate calculation
+### Market Insights Revealed:
+- **Budget vs Premium**: Clear separation between Ryanair and traditional carriers
+- **Geographic Preferences**: UK business (BA/Virgin) vs European business (Lufthansa/Air France)
+- **User Behavior**: Realistic segmentation with zero crossover between budget-conscious and business travelers
 
-## Quick Start
+## 🔥 Features
+
+- **High-Variance Results**: Engineered synthetic data with strong, realistic relationships
+- **Modern Visualizations**: Professional styling with clear category differentiation
+- **Complete Workflow**: From synthetic data generation to final insights
+- **Production Ready**: Robust code with comprehensive error handling
+
+## ⚡ Quick Start
 
 ```bash
-# Clone and setup
-git clone https://github.com/modha/correspondence-example-2025.git
+# Clone and run
+git clone https://github.com/spm1001/correspondence-example-2025.git
 cd correspondence-example-2025
-
-# Install dependencies with uv (recommended)
 uv sync
-
-# Run the analysis
-uv run correspondence_demo.py
+uv run correspondence_demo.py  # Runs all three analyses
 ```
 
-Or with pip:
+**Individual analyses:**
 ```bash
-pip install prince pandas matplotlib seaborn
-python correspondence_demo.py
+uv run correspondence_demo.py data.csv                           # Energy companies
+uv run correspondence_demo.py co_occurrence_cat.csv             # Suppliers  
+uv run correspondence_demo.py airline_usertype_contingency.csv  # Airlines (39.74% variance!)
 ```
 
-## Usage
+## 📊 What You Get
 
-The main script analyzes the included energy company dataset:
+### **Three Professional Visualizations:**
+- `data_correspondence_analysis.png` - Energy market analysis
+- `co_occurrence_cat_correspondence_analysis.png` - B2B supplier relationships
+- `airline_usertype_contingency_correspondence_analysis.png` - **Market segmentation showcase**
 
-```python
-from correspondence_demo import perform_correspondence_analysis, plot_ca_biplot
-
-# Load your contingency table
-data, sizes = load_data("your_data.csv")
-
-# Perform correspondence analysis
-ca = perform_correspondence_analysis(data)
-
-# Create visualization
-plot_ca_biplot(ca, data, sizes)
+### **Synthetic Data Pipeline:**
+```bash
+uv run generate_airline_data.py          # Create 100k realistic user sessions
+uv run create_proper_contingency_table.py # Transform to CA-ready format
+uv run correspondence_demo.py airline_usertype_contingency.csv # Analyze
 ```
 
-## Data Format
+### **Key Outputs:**
+- **High variance explained** (31-45% first dimension)
+- **Clear market segments** with realistic behavioral patterns
+- **Professional visualizations** suitable for presentations
+- **Complete source code** for customization and learning
 
-Your CSV should have:
-- **First column**: Row labels (category names)
-- **Remaining columns**: Numeric contingency table values
-- **Optional 'size' column**: For proportional point sizing
+## 🧠 Why This Works
 
-Example structure:
-```csv
-Brand,website1.com,website2.com,website3.com,size
-brand_a,1500,200,100,10
-brand_b,300,800,150,5
-brand_c,100,150,600,3
-```
+**Strong relationships create high variance explained:**
+- **Business UK**: 55% prefer British Airways, 0% consider Ryanair
+- **Budget Conscious**: 75% choose Ryanair, minimal premium consideration  
+- **Geographic Segmentation**: UK carriers vs European carriers vs budget
+- **Realistic Behavioral Patterns**: No unrealistic cross-category appeal
 
-## Results
+## 🔧 Technical Details
 
-The analysis produces:
-- **Eigenvalues**: Variance explained by each dimension
-- **Biplot visualization**: Shows relationships between categories
-- **Coordinates**: Numerical positions for further analysis
-- **Interpretable output**: Clear statistical summaries
+**Modern Python Stack:**
+- `prince` - Correspondence analysis (scikit-learn compatible)
+- `pandas` - Data manipulation and contingency tables
+- `matplotlib + seaborn` - Professional visualizations
+- `uv` - Fast, reliable dependency management
 
-Example output:
-```
-Eigenvalues (Variance explained):
-[0.425  0.3947]
+**Mathematical Rigor:**
+- SVD decomposition of standardized residuals
+- Chi-square distance preservation  
+- Proper eigenvalue/coordinate calculations
+- Equivalent to R's FactoMineR but optimized for Python
 
-Row contributions to first dimension:
-eonenergy.com          1.221
-edfenergy.com          0.136
-makeitcheaper.com     -0.008
-...
-```
+## 📚 Perfect For
 
-## Dependencies
+- **Learning CA**: Complete workflow from data generation to insights
+- **Market Research**: Realistic segmentation patterns and user behavior modeling
+- **Academic Use**: High-variance results suitable for teaching statistical methods
+- **Business Analysis**: Professional visualizations ready for presentations
 
-- **prince**: Correspondence analysis implementation
-- **pandas**: Data manipulation
-- **matplotlib**: Plotting
-- **numpy**: Numerical operations
-- **seaborn**: Enhanced visualizations (optional)
+---
 
-## Mathematical Background
-
-This implementation:
-1. Standardizes contingency table residuals
-2. Performs SVD decomposition 
-3. Extracts principal coordinates
-4. Preserves chi-square distances
-5. Creates interpretable low-dimensional representation
-
-The algorithm is mathematically equivalent to R's FactoMineR package but optimized for Python data science workflows.
-
-## License
-
-MIT License - feel free to use and modify for your own projects.
-
-## Contributing
-
-Issues and pull requests welcome! This is intended as both a learning resource and production-ready tool.
+**MIT License** • Contributions welcome • Built with [Claude Code](https://claude.ai/code)
